@@ -1,6 +1,17 @@
 /** @returns the employee created according to the provided details */
 export async function createEmployee({ name, birthday, salary }) {
   // TODO
+  try {
+    const sql = `
+    INSERT INTO employees ()
+    VALUES ()
+    RETURNING *;`;
+    const values = [name, birthday, salary];
+    const { rows } = await db.query(sql, values);
+  } catch (error) {
+    console.error("Error creating employee profile", error);
+    throw error;
+  }
 }
 
 // === Part 2 ===
